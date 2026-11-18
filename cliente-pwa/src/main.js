@@ -5,3 +5,5 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader'
 defineCustomElements(window)
 
 createApp(App).mount('#app')
+
+console.log(import.meta.env.VITE_PAGOS_KEY)
