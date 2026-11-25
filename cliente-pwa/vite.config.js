@@ -20,7 +20,14 @@ export default defineConfig({
         ]
       },
       workbox: {
-        runtimeCaching: [{
+        runtimeCaching: [
+          {
+            // NUEVO (Paso 7): Nunca guardar datos privados en caché
+            urlPattern: ({ url }) => url.pathname.startsWith('/api/pedidos'),
+            handler: 'NetworkOnly' 
+          },
+          
+          {
           urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
           handler: 'NetworkFirst',
           options: {
